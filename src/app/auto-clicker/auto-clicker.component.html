@@ -1,0 +1,10 @@
+<div class="multipliers">
+	<span class="one-multiplier active">x1</span><span class="ten-multiplier">x10</span><span class="hundred-multiplier">x100</span><span class="max-multiplyer">Max</span>
+</div>
+<ul class="auto-clickers">
+	<li *ngFor="let a of autoClickers">
+		<div *ngIf="a.unlocked" (click)="addClicker(a)">
+			<span class="count">{{a.count}}</span> <span class="name">{{a.name}}</span> <span class="cost"> ({{a.cost}})</span> <span class="clickers"> {{a.clickers}}</span>
+		</div>
+	</li>
+</ul>

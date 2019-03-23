@@ -8,6 +8,10 @@ import { MoneyService } from '../money/money.service';
 })
 export class AutoClickerService {
 
+	// const multipliers = [
+
+	// ];
+
 	getAutoClickers(): AutoClicker[] {
 		return AutoClickers;
 	}

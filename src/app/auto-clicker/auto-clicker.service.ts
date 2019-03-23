@@ -17,6 +17,18 @@ export class AutoClickerService {
 			if (AutoClickers.hasOwnProperty(a)) {
 				if (AutoClickers[a].unlockThreshold <= this.MoneyService.money && !AutoClickers[a].unlocked) {
 					AutoClickers[a].unlocked = true;
+					//console.log(a+1);
+					//AutoClickers[parseInt(a) + 1].shown = true;
+				} 
+			}
+		}
+	}
+
+	checkVisibility(): void {
+		for (let a in AutoClickers) {
+			if (AutoClickers.hasOwnProperty(a)) {
+				if (AutoClickers[a].unlockThreshold / 2 <= this.MoneyService.money && !AutoClickers[a].shown) {
+					AutoClickers[a].shown = true;
 				} 
 			}
 		}

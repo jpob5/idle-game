@@ -3,7 +3,7 @@
 </div>
 <ul class="auto-clickers">
 	<li *ngFor="let a of autoClickers">
-		<div *ngIf="a.unlocked" (click)="addClicker(a)">
+		<div *ngIf="a.shown" (click)="addClicker(a)">
 			<span class="count">{{a.count}}</span> <span class="name">{{a.name}}</span> <span class="cost"> ({{a.cost}})</span> <span class="clickers"> {{a.clickers}}</span>
 		</div>
 	</li>

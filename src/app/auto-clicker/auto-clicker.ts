@@ -6,4 +6,5 @@ export class AutoClicker {
   reward: number;
   unlocked: boolean;
   unlockThreshold: number;
+  shown: boolean;
 }

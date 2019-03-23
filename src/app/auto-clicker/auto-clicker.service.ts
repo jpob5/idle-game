@@ -59,6 +59,7 @@ export class AutoClickerService {
 
 	loop(): void {
 		this.checkThreshold();
+		this.checkVisibility();
 		this.autoClick();
 	}
 

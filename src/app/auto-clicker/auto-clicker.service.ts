@@ -8,9 +8,11 @@ import { MoneyService } from '../money/money.service';
 })
 export class AutoClickerService {
 
-	// const multipliers = [
+	multiplier = 1;
 
-	// ];
+	changeMultiplier(m): void {
+		this.multiplier = m;
+	}
 
 	getAutoClickers(): AutoClicker[] {
 		return AutoClickers;
@@ -55,9 +57,13 @@ export class AutoClickerService {
 	}
 
 	addClicker(a): void {
-		if (a.cost <= this.MoneyService.money) {
-			a.count++;
-			this.MoneyService.money -= a.cost;
+		if ((a.cost * this.multiplier) <= this.MoneyService.money && this.multiplier > 0) {
+			a.count += this.multiplier;
+			this.MoneyService.money -= a.cost * this.multiplier;
+		} else if (this.multiplier === 0) {
+			const buyableAmount = Math.floor(this.MoneyService.money / a.cost);
+			a.count += buyableAmount;
+			this.MoneyService.money -= a.cost * buyableAmount;
 		}
 	}
 

@@ -20,8 +20,5 @@ export class LoopService {
 	}
 
 	constructor(private AutoClicker: AutoClickerService) { }
-	
-	ngOnInit() {
-		setInterval(this.loop, 1000);
-	}
+
 }

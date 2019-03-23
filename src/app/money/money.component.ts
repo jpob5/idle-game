@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoneyService } from './money.service';
+import { GeneralService } from '../shared/general.service';
 
 @Component({
 	selector: 'app-money',
@@ -10,7 +11,7 @@ export class MoneyComponent implements OnInit {
 
 	money = this.MoneyService.money;
 
-	constructor(private MoneyService: MoneyService) { }
+	constructor(private MoneyService: MoneyService, private GeneralService: GeneralService) { }
 
 	ngOnInit() {
 	}

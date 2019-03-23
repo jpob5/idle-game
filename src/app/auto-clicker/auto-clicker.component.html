@@ -1,8 +1,8 @@
 <div class="multipliers">
-	<span class="one-multiplier active">x1</span>
-	<span class="ten-multiplier">x10</span>
-	<span class="hundred-multiplier">x100</span>
-	<span class="max-multiplyer">Max</span>
+	<span class="one-multiplier" [ngClass]="{'active': AutoClickerService.multiplier == 1}" (click)="oneMultiplier()">x1</span>
+	<span class="ten-multiplier" [ngClass]="{'active': AutoClickerService.multiplier == 10}" (click)="tenMultiplier()">x10</span>
+	<span class="hundred-multiplier" [ngClass]="{'active': AutoClickerService.multiplier == 100}" (click)="hundredMultiplier()">x100</span>
+	<span class="max-multiplier" [ngClass]="{'active': AutoClickerService.multiplier == 0}" (click)="maxMultiplier()">Max</span>
 </div>
 <ul class="auto-clickers">
 	<li *ngFor="let a of autoClickers">
@@ -11,6 +11,7 @@
 			<span class="name">{{a.name}}</span> 
 			<span class="cost"> ({{a.cost}})</span> 
 			<span class="clickers"> {{a.clickers}}</span>
+			<span class="reward"> [{{a.reward}}]</span>
 		</div>
 	</li>
 </ul>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { GeneralService } from '../shared/general.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -11,5 +12,5 @@ export class MoneyService {
 		this.money += amount;
 	}
 
-	constructor() { }
+	constructor(private GeneralService: GeneralService) { }
 }

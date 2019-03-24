@@ -9,22 +9,19 @@ export class GeneralService {
 
 	goldenRatio = 1.1618;
 
+	// Add a suffix and shorten large numbers
+	// TODO: this is broken with really large numbers as 
+	// JS changes the format of the number to 1.2345e10
 	beautifyNumber(num): string {
 		const numAsString = num.toString();
-		//log('numAsString ' + numAsString);
 		const digits = numAsString.length - 1;
-		//log('digits ' + digits);
 		const order = Math.floor(digits / 3);
-		//log('order ' + order);
 		const suffix = this.suffixes[order];
-		//log('suffix ' + suffix);
 		let newNumber = (num / Math.pow(1000, order)).toString();
 		if (order > 0) {
 			newNumber = (num / Math.pow(1000, order)).toFixed(2);
 		}
-		//log('newNumber ' + newNumber);
 		const beautifiedNumber = newNumber.toString() + suffix;
-		//log('beautifiedNumber ' + beautifiedNumber);
 		return beautifiedNumber;
 	}
 

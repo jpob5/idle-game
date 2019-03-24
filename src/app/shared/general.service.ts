@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class GeneralService {
 
-	suffixes = ['','k','m','b']
+	suffixes = ['','k','m','b'];
+
+	goldenRatio = 1.1618;
 
 	beautifyNumber(num): string {
 		const numAsString = num.toString();

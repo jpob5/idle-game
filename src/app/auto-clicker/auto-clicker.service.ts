@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AutoClicker } from './auto-clicker';
 import { AutoClickers } from './list-of-auto-clickers';
 import { MoneyService } from '../money/money.service';
+import { GeneralService } from '../shared/general.service';
 
 @Injectable({
   	providedIn: 'root'
@@ -57,13 +58,31 @@ export class AutoClickerService {
 	}
 
 	addClicker(a): void {
-		if ((a.cost * this.multiplier) <= this.MoneyService.money && this.multiplier > 0) {
+		let enoughMoney = true;
+		let tempMoney = this.MoneyService.money;
+		let tempCost = a.cost;
+		for (let i = 0; i < this.multiplier; i++) {
+			if (tempCost > tempMoney) {
+				enoughMoney = false;
+			} else {
+				tempMoney -= tempCost;
+				tempCost = Math.floor(tempCost * this.GeneralService.goldenRatio);
+			}
+		}
+		if (enoughMoney && this.multiplier > 0) {
 			a.count += this.multiplier;
-			this.MoneyService.money -= a.cost * this.multiplier;
+			this.MoneyService.money = tempMoney;
+			a.cost = tempCost;
 		} else if (this.multiplier === 0) {
-			const buyableAmount = Math.floor(this.MoneyService.money / a.cost);
-			a.count += buyableAmount;
-			this.MoneyService.money -= a.cost * buyableAmount;
+			while (enoughMoney) {
+				if (a.cost > this.MoneyService.money) {
+					enoughMoney = false;
+				} else {
+					a.count++;
+					this.MoneyService.money -= a.cost;
+					a.cost = Math.floor(a.cost * this.GeneralService.goldenRatio);
+				}
+			}
 		}
 	}
 
@@ -73,5 +92,5 @@ export class AutoClickerService {
 		this.autoClick();
 	}
 
-	constructor(private MoneyService: MoneyService) { }
+	constructor(private MoneyService: MoneyService, private GeneralService: GeneralService) { }
 }

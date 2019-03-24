@@ -30,13 +30,13 @@ export class AutoClickerComponent implements OnInit {
 	}
 
 	addClicker(AutoClicker: AutoClicker): void {
-	this.AutoClickerService.addClicker(AutoClicker);
+		this.AutoClickerService.addClicker(AutoClicker);
 	}
 
 	constructor(private AutoClickerService: AutoClickerService) { }
 
 	ngOnInit() {
-	this.getAutoClickers();
+		this.getAutoClickers();
 	}
 
 }

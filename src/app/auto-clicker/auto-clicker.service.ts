@@ -11,6 +11,7 @@ export class AutoClickerService {
 
 	multiplier = 1;
 
+	// Changes the amount the is bought on click
 	changeMultiplier(m): void {
 		this.multiplier = m;
 	}

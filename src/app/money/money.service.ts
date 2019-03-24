@@ -7,6 +7,7 @@ import { GeneralService } from '../shared/general.service';
 export class MoneyService {
 
 	money = 0;
+	//money = 1234567890123456789012345678901;
 
 	addToMoney(amount): void {
 		this.money += amount;

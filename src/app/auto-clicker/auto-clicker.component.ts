@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AutoClicker } from './auto-clicker';
 import { AutoClickers } from './list-of-auto-clickers';
 import { AutoClickerService } from './auto-clicker.service';
+import { GeneralService } from '../shared/general.service';
 
 @Component({
 	selector: 'app-auto-clicker',
@@ -33,7 +34,7 @@ export class AutoClickerComponent implements OnInit {
 		this.AutoClickerService.addClicker(AutoClicker);
 	}
 
-	constructor(private AutoClickerService: AutoClickerService) { }
+	constructor(private AutoClickerService: AutoClickerService, private GeneralService: GeneralService) { }
 
 	ngOnInit() {
 		this.getAutoClickers();

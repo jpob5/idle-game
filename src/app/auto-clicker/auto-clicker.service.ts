@@ -20,18 +20,20 @@ export class AutoClickerService {
 		return AutoClickers;
 	}
 
+	// Check to see if auto-clicker can be bought
+	// TODO: not sure if this is still needed
 	checkThreshold(): void {
 		for (let a in AutoClickers) {
 			if (AutoClickers.hasOwnProperty(a)) {
 				if (AutoClickers[a].unlockThreshold <= this.MoneyService.money && !AutoClickers[a].unlocked) {
 					AutoClickers[a].unlocked = true;
-					//console.log(a+1);
-					//AutoClickers[parseInt(a) + 1].shown = true;
 				} 
 			}
 		}
 	}
 
+	// Show the auto-clicker when they have half the cost 
+	// so that the player knows what to save up for
 	checkVisibility(): void {
 		for (let a in AutoClickers) {
 			if (AutoClickers.hasOwnProperty(a)) {
@@ -42,6 +44,7 @@ export class AutoClickerService {
 		}
 	}
 
+	// Add money for each type of auto-clicker
 	autoClick(): void {
 		for (let a in AutoClickers) {
 			if (AutoClickers.hasOwnProperty(a)) {
@@ -52,12 +55,14 @@ export class AutoClickerService {
 		}
 	}
 
+	// Add money for the number of auto-clickers
 	addMoney(id, amount): void {
 		for (let i = 0; i < amount; i++) {
 			this.MoneyService.money += AutoClickers[id].reward;
 		}
 	}
 
+	// Add to the number of auto-clickers
 	addClicker(a): void {
 		let enoughMoney = true;
 		let tempMoney = this.MoneyService.money;

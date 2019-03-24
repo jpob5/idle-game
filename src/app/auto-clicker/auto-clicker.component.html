@@ -7,11 +7,10 @@
 <ul class="auto-clickers">
 	<li *ngFor="let a of autoClickers">
 		<div *ngIf="a.shown" (click)="addClicker(a)">
-			<span class="count">{{a.count}}</span> 
+			<span class="count">{{GeneralService.beautifyNumber(a.count)}}</span> 
 			<span class="name">{{a.name}}</span> 
-			<span class="cost"> ({{a.cost}})</span> 
-			<span class="clickers"> {{a.clickers}}</span>
-			<span class="reward"> [{{a.reward}}]</span>
+			<span class="cost"> ({{GeneralService.beautifyNumber(a.cost)}})</span> 
+			<span class="reward"> [{{GeneralService.beautifyNumber(a.reward)}}]</span>
 		</div>
 	</li>
 </ul>

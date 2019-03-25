@@ -7,7 +7,7 @@ import { GeneralService } from '../shared/general.service';
 export class MoneyService {
 
 	money = 0;
-	lastTick = 0;
+	private lastTick = 0;
 	moneyPerSec = 0;
 
 	addToMoney(amount): void {

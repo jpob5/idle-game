@@ -1,14 +1,13 @@
 .multipliers {
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     width: 250px;
     text-align: center;
     font-size: 18px;
     span {
         display: inline-block;
         width: 50px;
-        margin-right: 10px;
+        margin-right: 5px;
+        margin-left: 5px;
         background-color: #ddd;
         border-radius: 5px;
         cursor: pointer;
@@ -21,99 +20,58 @@
             transform: scale(1.05);
         }
         &.active {
-            background-color: #607D8B;
+            background-color: #358;
             color: #fff;
         }
     }
 }
 .auto-clickers {
-	margin: 0 0 2em 0;
 	list-style-type: none;
 	padding: 0;
-	width: 300px;
+	width: 400px;
 	margin: auto;
 	font-family: Arial, Helvetica, sans-serif;
 	li div {
 		cursor: pointer;
 		position: relative;
-		left: 0;
-		background-color: #EEE;
-		margin: .5em;
-		padding: .3em 0;
-		height: 1.6em;
+		background-color: #ddd;
+		margin-bottom: 10px;
+		height: 40px;
+		line-height: 40px;
 		border-radius: 4px;
-		&.selected {
-			background-color: #CFD8DC  !important;
-  			color: white;
-		}
-		&.selected:hover {
-			background-color: #BBD8DC !important;
-  			color: white;
-		}
+		transition: 0.3s all;
+		overflow: hidden;
 		&:hover {
-			color: #607D8B;
-			background-color: #DDD;
-			left: .1em;
+			color: #333;
+			background-color: #ccc;
 		}
-		.count {
+		&:active {
+			transform: scale(0.97);
+		}
+		span {
 			display: inline-block;
-			font-size: small;
-			color: white;
-			padding: 0.8em 0.7em 0 0.7em;
-			background-color: #607D8B;
-			line-height: 1em;
-			position: relative;
-			left: -1px;
-			top: -4px;
-			height: 1.8em;
-			margin-right: .8em;
-			border-radius: 4px 0 0 4px;
-		}
-		.name {
-			display: inline-block;
-			line-height: 1em;
-			position: relative;
-			left: -1px;
-			top: -4px;
-			height: 1.8em;
-			// width: 100px;
-		}
-		.cost {
-			display: inline-block;
-			width: 30px;
-			margin-left: 5px;
-			line-height: 1em;
-			position: relative;
-			left: -1px;
-			top: -4px;
-			height: 1.8em;
-			//margin-right: .8em;
-			// float: right;
-		}
-		.per-sec {
-			display: inline-block;
-			width: 30px;
-			margin-left: 5px;
-			line-height: 1em;
-			position: relative;
-			left: -1px;
-			top: -3px;
-			height: 1.8em;
-			//margin-right: .8em;
-			// float: right;
-		}
-		.reward {
-			//display: inline-block;
-			//width: 30px;
-			margin-left: 5px;
-			line-height: 1em;
-			position: relative;
-			left: -1px;
-			top: 4px;
-			height: 1.8em;
-			margin-right: .8em;
-			text-align: right;
-			float: right;
+			&.count {
+				color: #fff;
+				width: 60px;
+				margin: auto;
+				text-align: center;
+				background-color: #358;
+				border-radius: 4px 0 0 4px;
+				margin-right: 10px;
+			}
+			&.name {
+				margin-right: 5px;
+			}
+			&.cost {
+				margin-right: 5px;
+			}
+			// &.per-sec {
+			// }
+			&.reward {
+				margin-right: 10px;
+				text-align: right;
+				float: right;
+			}
 		}
 	}
 }

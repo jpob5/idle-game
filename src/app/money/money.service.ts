@@ -7,10 +7,23 @@ import { GeneralService } from '../shared/general.service';
 export class MoneyService {
 
 	money = 0;
-	//money = 1234567890123456789012345678901;
+	lastTick = 0;
+	moneyPerSec = 0;
 
 	addToMoney(amount): void {
 		this.money += amount;
+	}
+
+	calculateMoneyPerSec(): void {
+		let tempMoneyPerSec = this.money - this.lastTick;
+		if (tempMoneyPerSec > 0) {
+			this.moneyPerSec = this.money - this.lastTick;
+		}
+		this.lastTick = this.money;
+	}
+
+	loop(): void {
+		this.calculateMoneyPerSec();
 	}
 
 	constructor(private GeneralService: GeneralService) { }

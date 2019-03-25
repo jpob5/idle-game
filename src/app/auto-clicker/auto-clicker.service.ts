@@ -92,6 +92,11 @@ export class AutoClickerService {
 		}
 	}
 
+	calculateMoneyPerSec(a): string {
+		let moneyPerSec = a.reward * a.count;
+		return '$' + moneyPerSec + '/s';
+	}
+
 	loop(): void {
 		this.checkThreshold();
 		this.checkVisibility();

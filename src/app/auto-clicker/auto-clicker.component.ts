@@ -34,6 +34,10 @@ export class AutoClickerComponent implements OnInit {
 		this.AutoClickerService.addClicker(AutoClicker);
 	}
 
+	moneyPerSec(a): string {
+		return this.AutoClickerService.calculateMoneyPerSec(a);
+	}
+
 	constructor(private AutoClickerService: AutoClickerService, private GeneralService: GeneralService) { }
 
 	ngOnInit() {

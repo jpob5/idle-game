@@ -6,7 +6,7 @@
 </div>
 <ul class="auto-clickers">
 	<li *ngFor="let a of autoClickers">
-		<div *ngIf="a.shown" (click)="addClicker(a)">
+		<div *ngIf="a.shown" (click)="addClicker(a)" class="{{canBeBought(a)}}">
 			<span class="count">{{GeneralService.beautifyNumber(a.count)}}</span> 
 			<span class="name">{{a.name}}</span> 
 			<span class="cost"> ({{GeneralService.beautifyNumber(a.cost)}})</span> 

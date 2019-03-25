@@ -97,6 +97,14 @@ export class AutoClickerService {
 		return '$' + moneyPerSec + '/s';
 	}
 
+	checkIfBuyable(a): boolean {
+		if (a.cost <= this.MoneyService.money) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	loop(): void {
 		this.checkThreshold();
 		this.checkVisibility();

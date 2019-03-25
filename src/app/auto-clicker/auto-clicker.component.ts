@@ -25,7 +25,6 @@ export class AutoClickerComponent implements OnInit {
 	maxMultiplier(): void {
 		this.AutoClickerService.changeMultiplier(0);
 	}
-
 	getAutoClickers(): void {
 		this.autoClickers = this.AutoClickerService.getAutoClickers();
 	}
@@ -36,6 +35,15 @@ export class AutoClickerComponent implements OnInit {
 
 	moneyPerSec(a): string {
 		return this.AutoClickerService.calculateMoneyPerSec(a);
+	}
+
+	canBeBought(a): string {
+		if (this.AutoClickerService.checkIfBuyable(a)) {
+			return 'buyable';
+		} else {
+			return '';
+		}
+		
 	}
 
 	constructor(private AutoClickerService: AutoClickerService, private GeneralService: GeneralService) { }

@@ -48,6 +48,17 @@
 		&:active {
 			transform: scale(0.97);
 		}
+		&.buyable {
+			.count {
+				color: #fff;
+				width: 60px;
+				margin: auto;
+				text-align: center;
+				background-color: #358;
+				border-radius: 4px 0 0 4px;
+				margin-right: 10px;
+			}
+		}
 		span {
 			display: inline-block;
 			&.count {
@@ -55,7 +66,7 @@
 				width: 60px;
 				margin: auto;
 				text-align: center;
-				background-color: #358;
+				background-color: #333;
 				border-radius: 4px 0 0 4px;
 				margin-right: 10px;
 			}

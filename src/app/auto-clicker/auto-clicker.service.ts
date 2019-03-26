@@ -97,9 +97,36 @@ export class AutoClickerService {
 		return '$' + moneyPerSec + '/s';
 	}
 
+	checkMultiple(a): boolean {
+		let tempMoney = this.MoneyService.money;
+		let tempCost = a.cost;
+		for (let i = 0; i < this.multiplier; i++) {
+			if (tempCost > tempMoney) {
+				return false;
+			} else {
+				tempMoney -= tempCost;
+				tempCost = Math.floor(tempCost * this.GeneralService.goldenRatio);
+			}
+		}
+		return true;
+	}
+
 	checkIfBuyable(a): boolean {
-		if (a.cost <= this.MoneyService.money) {
+		// if (a.cost <= this.MoneyService.money) {
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
+		let enoughMoney = true;
+		enoughMoney = this.checkMultiple(a);
+		if (enoughMoney && this.multiplier > 0) {
 			return true;
+		} else if (this.multiplier === 0) {
+			if (a.cost <= this.MoneyService.money) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

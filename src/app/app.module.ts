@@ -11,6 +11,7 @@ import { ClickerComponent } from './clicker/clicker.component';
 import { AutoClickerComponent } from './auto-clicker/auto-clicker.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,3 +1,4 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 * {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     -webkit-touch-callout: none; /* iOS Safari */
@@ -10,4 +11,12 @@
 h1 {
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.wrapper {
+    width: 500px;
+    margin: auto;
+    ::ng-deep .mat-tab-label {
+        width: 125px;
+        min-width: 50px;
+    }
 }

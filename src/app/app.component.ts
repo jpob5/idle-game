@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MoneyService } from './money/money.service';
 import { LoopService } from './shared/loop.service';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 
 @Component({
 	selector: 'app-root',

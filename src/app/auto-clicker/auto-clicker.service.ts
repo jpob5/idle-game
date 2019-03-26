@@ -3,9 +3,10 @@ import { AutoClicker } from './auto-clicker';
 import { AutoClickers } from './list-of-auto-clickers';
 import { MoneyService } from '../money/money.service';
 import { GeneralService } from '../shared/general.service';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
-  	providedIn: 'root'
+	providedIn: 'root'
 })
 export class AutoClickerService {
 
@@ -27,7 +28,7 @@ export class AutoClickerService {
 			if (AutoClickers.hasOwnProperty(a)) {
 				if (AutoClickers[a].unlockThreshold <= this.MoneyService.money && !AutoClickers[a].unlocked) {
 					AutoClickers[a].unlocked = true;
-				} 
+				}
 			}
 		}
 	}
@@ -39,7 +40,7 @@ export class AutoClickerService {
 			if (AutoClickers.hasOwnProperty(a)) {
 				if (AutoClickers[a].unlockThreshold / 2 <= this.MoneyService.money && !AutoClickers[a].shown) {
 					AutoClickers[a].shown = true;
-				} 
+				}
 			}
 		}
 	}
@@ -64,21 +65,24 @@ export class AutoClickerService {
 
 	// Add to the number of auto-clickers
 	addClicker(a): void {
-		let enoughMoney = true;
-		let tempMoney = this.MoneyService.money;
-		let tempCost = a.cost;
-		for (let i = 0; i < this.multiplier; i++) {
-			if (tempCost > tempMoney) {
-				enoughMoney = false;
-			} else {
-				tempMoney -= tempCost;
-				tempCost = Math.floor(tempCost * this.GeneralService.goldenRatio);
+		let enoughMoney = this.checkMultiple(a);
+
+		// let tempMoney = this.MoneyService.money;
+		// let tempCost = a.cost;
+		// for (let i = 0; i < this.multiplier; i++) {
+		// 	if (tempCost > tempMoney) {
+		// 		enoughMoney = false;
+		// 	} else {
+		// 		tempMoney -= tempCost;
+		// 		tempCost = Math.floor(tempCost * this.GeneralService.goldenRatio);
+		// 	}
+		// }
+		if (this.multiplier > 0 && enoughMoney) {
+			for (let i = 0; i < this.multiplier; i++) {
+				this.MoneyService.money -= a.cost;
+				a.cost = Math.floor(a.cost * this.GeneralService.goldenRatio);
+				a.count++;
 			}
-		}
-		if (enoughMoney && this.multiplier > 0) {
-			a.count += this.multiplier;
-			this.MoneyService.money = tempMoney;
-			a.cost = tempCost;
 		} else if (this.multiplier === 0) {
 			while (enoughMoney) {
 				if (a.cost > this.MoneyService.money) {
@@ -98,17 +102,18 @@ export class AutoClickerService {
 	}
 
 	checkMultiple(a): boolean {
+		let enoughMoney = true;
 		let tempMoney = this.MoneyService.money;
 		let tempCost = a.cost;
 		for (let i = 0; i < this.multiplier; i++) {
 			if (tempCost > tempMoney) {
-				return false;
+				enoughMoney = false;
 			} else {
 				tempMoney -= tempCost;
 				tempCost = Math.floor(tempCost * this.GeneralService.goldenRatio);
 			}
 		}
-		return true;
+		return enoughMoney;
 	}
 
 	checkIfBuyable(a): boolean {

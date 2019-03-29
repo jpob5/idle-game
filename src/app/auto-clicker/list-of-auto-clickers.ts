@@ -1,6 +1,6 @@
 import { AutoClicker } from './auto-clicker';
 
-export const AutoClickers: AutoClicker[] = [
+export let AutoClickers: AutoClicker[] = [
 	{
 		id: 0,
 		name: 'Clicker 1',

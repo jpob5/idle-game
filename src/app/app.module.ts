@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { MoneyComponent } from './money/money.component';
 import { ClickerComponent } from './clicker/clicker.component';
 import { AutoClickerComponent } from './auto-clicker/auto-clicker.component';
+import { SaveComponent } from './save/save.component';
+import { LoadComponent } from './load/load.component';
 
 
 
@@ -17,7 +19,9 @@ import { AutoClickerComponent } from './auto-clicker/auto-clicker.component';
     AppComponent,
     MoneyComponent,
     ClickerComponent,
-    AutoClickerComponent
+    AutoClickerComponent,
+    SaveComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,

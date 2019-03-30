@@ -11,6 +11,7 @@ import { ClickerComponent } from './clicker/clicker.component';
 import { AutoClickerComponent } from './auto-clicker/auto-clicker.component';
 import { SaveComponent } from './save/save.component';
 import { LoadComponent } from './load/load.component';
+import { ResetComponent } from './reset/reset.component';
 
 
 
@@ -21,7 +22,8 @@ import { LoadComponent } from './load/load.component';
     ClickerComponent,
     AutoClickerComponent,
     SaveComponent,
-    LoadComponent
+    LoadComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

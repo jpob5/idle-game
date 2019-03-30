@@ -9,7 +9,7 @@ import { MoneyService } from '../money/money.service';
 })
 export class LoadComponent implements OnInit {
 
-	loadGame(): void {
+	loadAutoClickers(): void {
 		let autoClickers = document.cookie.match('(^|;) ?autoclickers=([^;]*)(;|$)');
 		let ac = JSON.parse(autoClickers[2]);
 		for (let a in AutoClickers) {
@@ -17,22 +17,23 @@ export class LoadComponent implements OnInit {
 				AutoClickers[a] = ac[a];
 			}
 		}
+	}
+
+	loadMoney(): void {
 		let money = document.cookie.match('(^|;) ?money=([^;]*)(;|$)')[2];
 		this.MoneyService.money = parseInt(money);
 	}
 
-  constructor(private MoneyService: MoneyService) { }
-
-  ngOnInit() {
-	let autoClickers = document.cookie.match('(^|;) ?autoclickers=([^;]*)(;|$)');
-	let ac = JSON.parse(autoClickers[2]);
-	for (let a in AutoClickers) {
-		if (AutoClickers.hasOwnProperty(a)) {
-			AutoClickers[a] = ac[a];
-		}
+	loadGame(): void {
+		this.loadAutoClickers();	
+		this.loadMoney();	
 	}
-	let money = document.cookie.match('(^|;) ?money=([^;]*)(;|$)')[2];
-	this.MoneyService.money = parseInt(money);
-  }
+
+  	constructor(private MoneyService: MoneyService) { }
+
+	ngOnInit() {
+		this.loadAutoClickers();	
+		this.loadMoney();
+	}
 
 }

@@ -1,0 +1,23 @@
+.toaster {
+    background: #47f;
+    position: absolute;
+    height: 40px;
+    left: -200px;
+    top: 0px;
+    color: #fff;
+    text-align: center;
+    border-radius: 0px 0px 5px 0px;
+    font-size: 20px;
+    line-height: 40px;
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: 0.5s all;
+    min-width: 100px;
+    p {
+        margin: auto;
+    }
+    &.show {
+        left: 0px;
+    }
+}

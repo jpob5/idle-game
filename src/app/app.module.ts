@@ -12,6 +12,7 @@ import { AutoClickerComponent } from './auto-clicker/auto-clicker.component';
 import { SaveComponent } from './save/save.component';
 import { LoadComponent } from './load/load.component';
 import { ResetComponent } from './reset/reset.component';
+import { ToasterComponent } from './shared/toaster/toaster.component';
 
 
 
@@ -23,7 +24,8 @@ import { ResetComponent } from './reset/reset.component';
     AutoClickerComponent,
     SaveComponent,
     LoadComponent,
-    ResetComponent
+    ResetComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,

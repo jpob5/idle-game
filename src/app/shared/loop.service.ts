@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AutoClickerService } from '../auto-clicker/auto-clicker.service';
 import { MoneyService } from '../money/money.service';
+import { SaveService } from '../save/save.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -13,6 +14,7 @@ export class LoopService {
 		this.tickCount++;
 		this.AutoClicker.loop();
 		this.MoneyService.loop();
+		this.SaveService.loop();
 	}
 
 	startLoop() {
@@ -21,6 +23,8 @@ export class LoopService {
 		}, 1000);
 	}
 
-	constructor(private AutoClicker: AutoClickerService, private MoneyService: MoneyService) { }
+	constructor(private AutoClicker: AutoClickerService, 
+		private MoneyService: MoneyService, 
+		private SaveService: SaveService) { }
 
 }

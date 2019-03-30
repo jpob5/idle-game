@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutoClickers } from '../auto-clicker/list-of-auto-clickers';
 import { MoneyService } from '../money/money.service';
+import { SaveService } from '../save/save.service';
 
 @Component({
   selector: 'app-save',
@@ -10,12 +11,10 @@ import { MoneyService } from '../money/money.service';
 export class SaveComponent implements OnInit {
 
 	saveGame(): void {
-		console.log(AutoClickers);
-		document.cookie = 'autoclickers=' + JSON.stringify(AutoClickers) + '; expires=Thu, 1 Apr 2019 12:00:00 UTC; path=/';
-		document.cookie = 'money=' + this.MoneyService.money.toString() + '; expires=Thu, 1 Apr 2019 12:00:00 UTC; path=/';
+		this.SaveService.saveGame();
 	}
 
-	constructor(private MoneyService: MoneyService) { }
+	constructor(private MoneyService: MoneyService, private SaveService: SaveService) { }
 
 	ngOnInit() {
 	}

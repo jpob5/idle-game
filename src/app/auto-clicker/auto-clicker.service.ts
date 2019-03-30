@@ -66,17 +66,6 @@ export class AutoClickerService {
 	// Add to the number of auto-clickers
 	addClicker(a): void {
 		let enoughMoney = this.checkMultiple(a);
-
-		// let tempMoney = this.MoneyService.money;
-		// let tempCost = a.cost;
-		// for (let i = 0; i < this.multiplier; i++) {
-		// 	if (tempCost > tempMoney) {
-		// 		enoughMoney = false;
-		// 	} else {
-		// 		tempMoney -= tempCost;
-		// 		tempCost = Math.floor(tempCost * this.GeneralService.goldenRatio);
-		// 	}
-		// }
 		if (this.multiplier > 0 && enoughMoney) {
 			for (let i = 0; i < this.multiplier; i++) {
 				this.MoneyService.money -= a.cost;
@@ -98,7 +87,7 @@ export class AutoClickerService {
 
 	calculateMoneyPerSec(a): string {
 		let moneyPerSec = a.reward * a.count;
-		return '$' + moneyPerSec + '/s';
+		return '$' + this.GeneralService.beautifyNumber(moneyPerSec) + '/s';
 	}
 
 	checkMultiple(a): boolean {

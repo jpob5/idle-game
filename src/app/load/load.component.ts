@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutoClickers } from '../auto-clicker/list-of-auto-clickers';
 import { MoneyService } from '../money/money.service';
+import { ToasterService } from '../shared/toaster/toaster.service';
 
 @Component({
   selector: 'app-load',
@@ -27,9 +28,10 @@ export class LoadComponent implements OnInit {
 	loadGame(): void {
 		this.loadAutoClickers();	
 		this.loadMoney();	
+		this.ToasterService.showToaster('Game Loaded!');
 	}
 
-  	constructor(private MoneyService: MoneyService) { }
+  	constructor(private MoneyService: MoneyService, private ToasterService: ToasterService) { }
 
 	ngOnInit() {
 		this.loadAutoClickers();	

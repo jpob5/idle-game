@@ -7,7 +7,7 @@ import { GeneralService } from '../shared/general.service';
 export class MoneyService {
 
 	money = 0;
-	private lastTick = 0;
+	lastTick = 0;
 	moneyPerSec = 0;
 
 	addToMoney(amount): void {
@@ -18,6 +18,8 @@ export class MoneyService {
 		let tempMoneyPerSec = this.money - this.lastTick;
 		if (tempMoneyPerSec > 0) {
 			this.moneyPerSec = this.money - this.lastTick;
+		} else {
+			this.moneyPerSec = 0;
 		}
 		this.lastTick = this.money;
 	}
